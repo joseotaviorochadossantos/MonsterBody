@@ -1,0 +1,226 @@
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Estilo para os títulos principais */
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os subtítulos */
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+
+
+/* Estilo geral do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Cor de fundo suave */
+    color: #333; /* Cor do texto padrão */
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Estilo para o título principal */
+h1 {
+    color: #1f1db9; /* Azul vibrante */
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os subtítulos */
+h2 {
+    color: #000000; /* Verde suave */
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+
+
+/* Estilos gerais */
+body {
+        font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #9763f9;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Títulos das seções */
+h2 {
+    color: #3329b9;
+}
+
+/* Seções */
+section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+
+/* Estilo padrão */
+
+  
+  /* Estilo para alto contraste */
+  body.high-contrast {
+    background-color: #f3f2f2 !important;
+    color: #fff6f6 !important;
+  }
+  
+  body.high-contrast h1,
+  body.high-contrast h2,
+  body.high-contrast p,
+  body.high-contrast li {
+    color: #000000 !important;
+  }
+
+
+  /* Estilo para modo de alto contraste */
+body.high-contrast {
+    background-color: #ffffff !important;
+    color: #f1ebeb !important;
+  }
+  
+
+  body.high-contrast h1,
+  body.high-contrast h2,
+  body.high-contrast p,
+  body.high-contrast li {
+    color: #000000 !important;
+  }
+  /* Adicione ao seu style.css */
+html {
+    scroll-behavior: smooth;
+  }
+
+  /* Adicione ao seu style.css */
+section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  section:hover {
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.titulo-estilizado {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.titulo-estilizado span {
+    font-weight: 900;
+    color: #ffeb3b;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#accessibilityOptions {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.high-contrast {
+    background-color: black;
+    color: white;
+}
+
+a.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode section {
+    background-color: #333;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode p, .dark-mode li {
+    color: white;
+}
+#learnMoreButton {
+    background-color: #fafdff;
+    color: rgb(0, 0, 0);
+    padding: 5px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#learnMoreButton:hover {
+    background-color: #ff00d9;
+}
+
+
+body.high-contrast blockquote {
+    background-color: #222; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    border-left: 5px solid #ffcc00; /* Adiciona um destaque */
+    padding: 15px;
+}
