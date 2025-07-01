@@ -1,124 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Monster Body - Academia</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body>
+    <header>
+        <nav aria-label="Menu principal">
+            <button id="accessibilityButton" aria-label="Ativar modo alto contraste">Alto Contraste</button>
+            <button id="darkModeButton" aria-label="Ativar modo escuro">Modo Escuro</button>
+            <button onclick="adjustFontSize('increase')" aria-label="Aumentar fonte">A+</button>
+            <button onclick="adjustFontSize('decrease')" aria-label="Diminuir fonte">A-</button>
+        </nav>
+        <div class="search-wrapper">
+            <label for="searchBar" class="visually-hidden">Pesquisar</label>
+            <input type="text" id="searchBar" placeholder="Pesquisar..." onkeyup="searchContent()" aria-label="Pesquisar conteúdo">
+            <ul id="searchResults" aria-live="polite"></ul>
+        </div>
+        <h1 class="titulo-estilizado">
+            <span>Monster Body</span> - Academia
+        </h1>
+        <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=900&q=80"
+        alt="Várias pessoas treinando em academia moderna, levantando pesos" class="banner-img" />
+    </header>
 
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Document</title>
-</head>
+    <main>
+        <section class="sobre" aria-labelledby="sobre-titulo">
+            <h2 id="sobre-titulo">Sobre a Monster Body</h2>
+            <p>
+                Na Monster Body, acreditamos que saúde e bem-estar são para todos. Nossa missão é inspirar e apoiar você a alcançar uma vida equilibrada, com mais disposição e autoestima. Aqui, cada aluno é único e recebe atenção especial para evoluir no seu ritmo.
+            </p>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                alt="Treinador auxiliando aluna durante exercício" class="img-section"/>
+        </section>
 
+        <section class="alunos" aria-labelledby="alunos-titulo">
+            <h2 id="alunos-titulo">Aluno</h2>
+            <ul>
+                <li>José Otávio Rocha</li>
+            </ul>
+        </section>
 
+        <section class="turmas" aria-labelledby="turmas-titulo">
+            <h2 id="turmas-titulo">Turmas</h2>
+            <ul>
+                <li>3.B.Ds</li>
+            </ul>
+        </section>
 
+        <section class="empresa" aria-labelledby="empresa-titulo">
+            <h2 id="empresa-titulo">Sobre a Empresa</h2>
+            <p>
+                A Monster Body é referência em saúde física e mental, promovendo qualidade de vida e motivação diária para todos os públicos.
+            </p>
+        </section>
 
+        <section class="objetivos" aria-labelledby="objetivos-titulo">
+            <h2 id="objetivos-titulo">Nossos Objetivos</h2>
+            <p>
+                Queremos transformar vidas! Seja para ganhar força, emagrecer, melhorar o condicionamento ou criar uma rotina mais saudável, estamos prontos para orientar cada passo da sua jornada.
+            </p>
+        </section>
 
+        <section class="diferenciais" aria-labelledby="diferenciais-titulo">
+            <h2 id="diferenciais-titulo">Por que escolher a Monster Body?</h2>
+            <ul>
+                <li>Atendimento personalizado e focado em resultados</li>
+                <li>Equipe qualificada e sempre pronta a ajudar</li>
+                <li>Ambiente acolhedor, limpo e motivador</li>
+                <li>Comunidade ativa e apoio contínuo</li>
+            </ul>
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+                alt="Grupo de pessoas felizes após treino em academia" class="img-section"/>
+        </section>
 
+        <section class="modalidades" aria-labelledby="modalidades-titulo">
+            <h2 id="modalidades-titulo">Modalidades</h2>
+            <p>Opções para todos os objetivos e estilos:</p>
+            <ul>
+                <li>Musculação</li>
+                <li>Treinamento Funcional</li>
+                <li>CrossFit</li>
+                <li>Aulas de HIIT</li>
+                <li>Boxe e Muay Thai</li>
+                <li>Pilates e Yoga</li>
+            </ul>
+        </section>
 
+        <section class="planos" aria-labelledby="planos-titulo">
+            <h2 id="planos-titulo">Planos e Preços</h2>
+            <p>Escolha o plano que mais combina com você:</p>
+            <ul>
+                <li><strong>Básico:</strong> Acesso livre à musculação – R$ 99/mês</li>
+                <li><strong>Premium:</strong> Aulas coletivas + Personal trainer – R$ 199/mês</li>
+                <li><strong>VIP:</strong> Todos os benefícios + Nutricionista – R$ 299/mês</li>
+            </ul>
+        </section>
+
+        <section class="depoimentos" aria-labelledby="depoimentos-titulo">
+            <h2 id="depoimentos-titulo">O que nossos alunos dizem</h2>
+            <figure>
+                <blockquote>
+                    "A melhor academia que já frequentei! Estrutura top e profissionais incríveis."
+                </blockquote>
+                <figcaption>— Ana Souza</figcaption>
+            </figure>
+            <figure>
+                <blockquote>
+                    "Recebi um treino personalizado e alcancei meus objetivos. Recomendo muito!"
+                </blockquote>
+                <figcaption>— Lucas Oliveira</figcaption>
+            </figure>
+        </section>
+
+        <section class="contato" aria-labelledby="contato-titulo">
+            <h2 id="contato-titulo">Fale Conosco</h2>
+            <p>Dúvidas? Entre em contato, será um prazer atender você!</p>
+            <ul class="contato-list">
+                <li>
+                    <i class="fa-solid fa-phone"></i> Telefone: <a href="tel:+5544998415886">(44) 99841-5886</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i> Email: <a href="mailto:contato@monsterbody.com">contato@monsterbody.com</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-map-marker-alt"></i> Endereço: Avenida Saúde, 123 - Maringá, PR
+                </li>
+            </ul>
+            <a href="https://webrun.com.br/10-motivos-para-voce-comecar-a-treinar/" target="_blank" rel="noopener">
+                <button id="learnMoreButton" aria-label="Saiba mais sobre os benefícios de treinar">
+                    <i class="fa-solid fa-info-circle"></i> Saiba Mais
+                </button>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Monster Body. Desenvolvido por José Otávio Rocha.</p>
+    </footer>
+    <button id="backToTop" aria-label="Voltar ao topo">Voltar ao Topo</button>
     <script src="script.js"></script>
-    <button id="accessibilityButton">Acessibilidade </button>
-    <button onclick="adjustFontSize('increase')">Aumentar Fonte</button>
-    <button onclick="adjustFontSize('decrease')">Diminuir Fonte</button>
-   
-    <input type="text" id="searchBar" placeholder="Pesquisar..." onkeyup="searchContent()">
-<ul id="searchResults"></ul>
-
-    <h1 class="titulo-estilizado">
-        <span>Monster Body</span> - Academia
-    </h1>
-    
-
-</header>
-<section class="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Monster Body é uma academia que busca promover saúde, bem-estar e força para seus alunos. Nosso objetivo é ajudar você a conquistar uma vida mais saudável e feliz.</p>
-</section>
-<section class="alunos">
-    <h2>Aluno</h2>
-    <ul>
-        <li>José Otávio Rocha</li>
-    </ul>
-</section>
-<section class="turmas">
-    <h2>Turmas</h2>
-    <ul>
-        <li>3.B.Ds</li>
-    </ul>
-</section>
-<section class="empresa">
-    <h2>Empresa do Estúdio</h2>
-    <p>Monster Body</p>
-</section>
-<section class="objetivos">
-    <h2>Objetivos</h2>
-    <p> O principal objetivo de uma academia é ajudar as pessoas a alcançarem uma vida mais saudável, promovendo o bem-estar físico e mental. Seja para ganhar força, perder peso, melhorar a resistência ou simplesmente manter uma rotina de exercícios, a academia busca criar um ambiente motivador e acolhedor para que cada indivíduo possa atingir suas metas pessoais.</p>
-</section>
-<section class="diferenciais">
-    <h2>Diferenciais</h2>
-    <p>A Monster Body se destaca no mercado por seu compromisso em oferecer estratégias práticas e eficientes para o dia a dia de seus clientes. Nosso diferencial está na personalização do atendimento e na preocupação em entender as necessidades de cada pessoa, ajudando-os a conquistar seus objetivos de forma mais rápida e segura. Além disso, investimos na motivação constante, criando uma comunidade forte e inspiradora para que todos possam evoluir juntos e alcançar o melhor de si mesmos.</p>
-</section>
-<section class="modalidades">
-    <h2>Modalidades</h2>
-    <p>Na Monster Body, você encontra uma variedade de modalidades para atingir seus objetivos:</p>
-    <ul>
-        <li>Musculação</li>
-        <li>Treinamento Funcional</li>
-        <li>CrossFit</li>
-        <li>Aulas de HIIT</li>
-        <li>Boxe e Muay Thai</li>
-        <li>Pilates e Yoga</li>
-    </ul>
-</section>
-
-<section class="planos">
-    <h2>Planos e Preços</h2>
-    <p>Escolha o plano que melhor se adapta ao seu estilo de vida:</p>
-    <ul>
-        <li><strong>Plano Básico:</strong> Acesso livre à musculação – R$ 99/mês</li>
-        <li><strong>Plano Premium:</strong> Aulas coletivas + Personal trainer – R$ 199/mês</li>
-        <li><strong>Plano VIP:</strong> Todos os benefícios + Nutricionista – R$ 299/mês</li>
-    </ul>
-</section>
-
-<section class="depoimentos">
-    <h2>Depoimentos</h2>
-    <p>Veja o que nossos alunos dizem sobre a Monster Body:</p>
-    <blockquote>
-        "A melhor academia que já frequentei! Estrutura top e ótimos profissionais." – <strong>Ana Souza</strong>
-    </blockquote>
-    <blockquote>
-        "Me ajudaram a alcançar meus objetivos com um treino personalizado. Super recomendo!" – <strong>Lucas Oliveira</strong>
-    </blockquote>
-</section>
-
-<section class="contato">
-    <h2>Entre em Contato</h2>
-    <p>Tem dúvidas? Entre em contato conosco:</p>
-    <p><i class="fa-solid fa-phone"></i> Telefone: (44) 99841-5886</p>
-    <p><i class="fa-solid fa-envelope"></i> Email: contato@monsterbody.com</p>
-    <p><i class="fa-solid fa-map-marker-alt"></i> Endereço: Avenida Saúde, 123 - Maringá, PR</p>
-    <a href="https://webrun.com.br/10-motivos-para-voce-comecar-a-treinar/" target="_blank">
-        <button id="learnMoreButton"><i class="fa-solid fa-info-circle"></i> Saiba Mais</button>
-    </a>
-    
-</section>
-
-
-<footer>
-    <p>&copy; 2025 Monster Body. Todos os direitos do José Otávio Rocha.</p>
-</footer>
-    
-<button id="backToTop" style="
-  position: fixed; bottom: 20px; right: 20px; padding: 10px; display: none; z-index: 1000;">
-  Voltar ao Topo
-  </button>
-  
-
-
-
 </body>
 </html>
-
-

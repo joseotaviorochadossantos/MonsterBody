@@ -1,164 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Criar botão de modo de alto contraste
-  const contrastBtn = document.createElement('button');
-  contrastBtn.textContent = 'Ativar Alto Contraste';
-  contrastBtn.setAttribute('aria-pressed', 'false');
-  contrastBtn.style.position = 'fixed';
-  contrastBtn.style.top = '10px';
-  contrastBtn.style.right = '10px';
-  contrastBtn.style.zIndex = '1000';
-  contrastBtn.style.padding = '10px';
-  contrastBtn.style.backgroundColor = '#000';
-  contrastBtn.style.color = '#fff';
-  contrastBtn.style.border = 'none';
-  contrastBtn.style.cursor = 'pointer';
 
-  document.body.appendChild(contrastBtn);
-
-  // Função para alternar o modo de alto contraste
-  contrastBtn.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
-    const isActive = document.body.classList.contains('high-contrast');
-    contrastBtn.setAttribute('aria-pressed', isActive.toString());
-    contrastBtn.textContent = isActive ? 'Desativar Alto Contraste' : 'Ativar Alto Contraste';
+  // Alto contraste
+  const accessibilityBtn = document.getElementById('accessibilityButton');
+  accessibilityBtn.addEventListener('click', () => {
+      document.body.classList.toggle('high-contrast');
+      accessibilityBtn.setAttribute('aria-pressed', document.body.classList.contains('high-contrast'));
   });
 
-  document.getElementById('accessibilityButton').addEventListener('click', function () {
-    let options = document.getElementById('accessibilityOptions');
-    options.classList.toggle('hidden');
-});
+  // Dark mode (opcional: só se houver botão com id="darkModeButton")
+  const darkModeBtn = document.getElementById('darkModeButton');
+  if (darkModeBtn) {
+      darkModeBtn.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          darkModeBtn.setAttribute('aria-pressed', document.body.classList.contains('dark-mode'));
+      });
+  }
 
-function increaseFontSize() {
-    document.body.style.fontSize = (parseInt(getComputedStyle(document.body).fontSize) + 2) + "px";
-}
+  // Ajuste de fonte
+  window.adjustFontSize = function(action) {
+      // Ajusta html para escalar tudo, não só body
+      const root = document.documentElement;
+      let style = window.getComputedStyle(root).fontSize;
+      let fontSize = parseFloat(style);
 
-function toggleContrast() {
-    document.body.classList.toggle('high-contrast');
-}
+      if (action === 'increase' && fontSize < 24) {
+          root.style.fontSize = (fontSize + 2) + 'px';
+      }
+      if (action === 'decrease' && fontSize > 12) {
+          root.style.fontSize = (fontSize - 2) + 'px';
+      }
+  };
 
-function highlightLinks() {
-    document.querySelectorAll('a').forEach(link => {
-        link.classList.toggle('highlight');
-    });
-}
-
-
-  // Navegação por teclado: pressionar números para ir às seções
+  // Navegação por teclado para seções (teclas 1 a 6)
   document.addEventListener('keydown', (e) => {
-    switch(e.key) {
-      case '1':
-        document.querySelector('.sobre')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '2':
-        document.querySelector('.alunos')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '3':
-        document.querySelector('.turmas')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '4':
-        document.querySelector('.empresa')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '5':
-        document.querySelector('.objetivos')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case '6':
-        document.querySelector('.diferenciais')?.scrollIntoView({ behavior: 'smooth' });
-        break;
-      default:
-        break;
-    }
-  });
-});
-
-  // Mostrar ou esconder o botão de voltar ao topo
-const backToTopBtn = document.getElementById('backToTop');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.style.display = 'block';
-  } else {
-    backToTopBtn.style.display = 'none';
-  }
-});
-
-// Ação do botão
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-
-// Detectar quando as seções entram na viewport
-const sections = document.querySelectorAll('section');
-
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-sections.forEach(section => {
-    section.classList.add('fade-in');
-    observer.observe(section);
-});
-
-document.getElementById('darkModeToggle').addEventListener('click', function () {
-  document.body.classList.toggle('dark-mode');
-});
-
-function adjustFontSize(action) {
-  let body = document.body;
-  let currentSize = parseInt(window.getComputedStyle(body).fontSize);
-  body.style.fontSize = action === 'increase' ? (currentSize + 2) + "px" : (currentSize - 2) + "px";
-}
-
-function searchContent() {
-  let input = document.getElementById('searchBar').value.toLowerCase();
-  let sections = document.querySelectorAll('section');
-  
-  sections.forEach(section => {
-      section.style.display = section.innerText.toLowerCase().includes(input) ? "block" : "none";
-  });
-}
-
-
-function adjustFontSize(action) {
-  let body = document.body;
-  let currentSize = parseInt(window.getComputedStyle(body).fontSize);
-  
-  if (action === 'increase') {
-      body.style.fontSize = (currentSize + 2) + "px";
-  } else if (action === 'decrease' && currentSize > 12) {
-      body.style.fontSize = (currentSize - 2) + "px";
-  }
-}
-
-function adjustFontSize(action) {
-  let elements = document.querySelectorAll("body, h1, h2, p, li");
-  
-  elements.forEach(element => {
-      let currentSize = parseFloat(window.getComputedStyle(element).fontSize);
-      
-      if (action === "increase") {
-          element.style.fontSize = (currentSize + 2) + "px";
-      } else if (action === "decrease") {
-          element.style.fontSize = (currentSize - 2) + "px";
+      if (['1','2','3','4','5','6'].includes(e.key)) {
+          const idx = parseInt(e.key) - 1;
+          const sections = document.querySelectorAll('main section');
+          if (sections[idx]) sections[idx].scrollIntoView({ behavior: 'smooth' });
       }
   });
-}
-function increaseFontSize() {
-  document.body.style.fontSize = "20px"; // Ajuste conforme necessário
-}
-function increaseSubtitleSize() {
-  document.querySelectorAll("h2").forEach(title => {
-      title.style.fontSize = "24px"; // Ajuste conforme necessário
+
+  // Botão "Voltar ao Topo"
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+          backToTopBtn.style.display = 'block';
+      } else {
+          backToTopBtn.style.display = 'none';
+      }
   });
-}
+  backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
+  // Busca simples nas seções
+  window.searchContent = function() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const sections = document.querySelectorAll('main section');
+      const results = document.getElementById('searchResults');
+      results.innerHTML = '';
 
+      if (input.length > 1) {
+          sections.forEach(section => {
+              if (section.textContent.toLowerCase().includes(input)) {
+                  const li = document.createElement('li');
+                  const title = section.querySelector('h2') ? section.querySelector('h2').innerText : "Seção";
+                  li.textContent = title;
+                  li.style.cursor = 'pointer';
+                  li.onclick = () => section.scrollIntoView({ behavior: 'smooth' });
+                  results.appendChild(li);
+              }
+          });
+          if (results.innerHTML === '') {
+              const li = document.createElement('li');
+              li.textContent = 'Nenhum resultado encontrado.';
+              results.appendChild(li);
+          }
+      }
+  };
+
+  // Efeito fade-in nas seções ao aparecer
+  const sections = document.querySelectorAll('main section');
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.1 });
+  sections.forEach(section => {
+      section.classList.add('fade-in');
+      observer.observe(section);
+  });
+
+  // Destacar links (opcional se quiser usar highlightLinks)
+  window.highlightLinks = function() {
+      document.querySelectorAll('a').forEach(link => {
+          link.classList.toggle('highlight');
+      });
+  };
+
+});
